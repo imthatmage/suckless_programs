@@ -1,0 +1,17 @@
+#/bin/sh
+nitrogen --restore
+compton -b
+setxkbmap us,ru -option 'grp:alt_shift_toggle'
+nm-applet
+
+status () { 
+
+	echo -n "BAT: $(acpi | awk '{print $4}' | sed s/,//) | $(date '+%Y-%m-%d %H:%M:%S')"
+}
+
+while :; do
+	
+	xsetroot -name "$(status)"
+	sleep 1
+
+done
