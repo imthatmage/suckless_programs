@@ -1,8 +1,9 @@
 #!/bin/bash
 nitrogen --restore
-picom -b
+picom -b 
 setxkbmap us,ru -option 'grp:alt_shift_toggle'
 xrandr --output DP1 --mode 2560x1440 --right-of eDP1
+dwmblocks
 #nm-applet
 
 #
