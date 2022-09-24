@@ -1,0 +1,5 @@
+#! /bin/bash 
+
+date="$(date '+%b %d (%a) %I:%M%p')"
+
+echo -e "$date"
