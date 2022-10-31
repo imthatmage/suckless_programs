@@ -21,8 +21,8 @@ static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "FantasqueSansMono NF:size=20" };
-static const char dmenufont[]       = "FantasqueSansMono NF:size=20";
+static const char *fonts[]          = { "FantasqueSansMono NF:size=16" };
+static const char dmenufont[]       = "FantasqueSansMono NF:size=16";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
