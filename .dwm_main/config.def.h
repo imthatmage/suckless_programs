@@ -3,20 +3,6 @@
 /* appearance */
 #include <X11/XF86keysym.h>
 
-/* Add somewhere in your constants definition section */
-static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%",     NULL };
-static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%",     NULL };
-static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL };
-static const char *mutemic[] = { "/usr/bin/pactl", "set-source-mute",   "@DEFAULT_SOURCE@", "toggle",  NULL };
-
-/* If you use amixer, use this instead. Thanks go to DaniOrt3ga. */
-//static const char *upvol[] = { "/usr/bin/amixer", "set", "Master", "5%+", NULL };
-//static const char *downvol[] = { "/usr/bin/amixer", "set", "Master", "5%-", NULL };
-//static const char *mutevol[] = { "/usr/bin/amixerl", "set", "Master", "toggle", NULL };
-static const char *light_up[] = {"/usr/bin/light", "-A", "5", NULL};
-static const char *light_down[] = {"/usr/bin/light", "-U", "5", NULL};
-
-
 static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
@@ -112,12 +98,12 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	// my own definitions
-	{ 0,                       XF86XK_AudioLowerVolume, spawn, {.v = downvol } },
-	{ 0,                       XF86XK_AudioMute, spawn, {.v = mutevol } },
-	{ 0,                       XF86XK_AudioRaiseVolume, spawn, {.v = upvol   } },
-	{ 0,			   XF86XK_MonBrightnessUp,		spawn,	{.v = light_up} },
-	{ 0,			   XF86XK_MonBrightnessDown,	spawn,	{.v = light_down} },
-	{ 0,                       XF86XK_AudioMicMute, spawn, {.v = mutemic } },
+	{ 0,         XF86XK_AudioLowerVolume,   spawn,  SHCMD("pamixer --allow-boost -d 5; kill -38 $(pidof dwmblocks)") },
+	{ 0,         XF86XK_AudioMute,          spawn,  SHCMD("pamixer -t; kill -38 $(pidof dwmblocks)") },
+	{ 0,         XF86XK_AudioRaiseVolume,   spawn,  SHCMD("pamixer --allow-boost -i 5; kill -38 $(pidof dwmblocks)") },
+	{ 0,         XF86XK_AudioMicMute,       spawn,  SHCMD("pactl set-source-mute \"@DEFAULT_SOURCE@\" toggle")},
+	{ 0,			   XF86XK_MonBrightnessUp,		spawn,	SHCMD("/usr/bin/light -A 5")},
+	{ 0,			   XF86XK_MonBrightnessDown,	spawn,	SHCMD("/usr/bin/light -U 5") },
 };
 
 /* button definitions */
