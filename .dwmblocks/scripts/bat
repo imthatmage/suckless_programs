@@ -1,5 +1,5 @@
-#! /bin/bash 
+#!/bin/sh 
 
 bat="$(acpi | awk '{print $4}' | sed s/,//)"
 
-echo -e "$bat"
+echo "$bat"
