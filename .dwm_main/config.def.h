@@ -98,12 +98,14 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	// my own definitions
-	{ 0,         XF86XK_AudioLowerVolume,   spawn,  SHCMD("pamixer --allow-boost -d 5; kill -38 $(pidof dwmblocks)") },
-	{ 0,         XF86XK_AudioMute,          spawn,  SHCMD("pamixer -t; kill -38 $(pidof dwmblocks)") },
-	{ 0,         XF86XK_AudioRaiseVolume,   spawn,  SHCMD("pamixer --allow-boost -i 5; kill -38 $(pidof dwmblocks)") },
+	{ 0,         XF86XK_AudioRaiseVolume,   spawn,  SHCMD("pamixer --allow-boost -i 5; kill -36 $(pidof dwmblocks)") },
+	{ 0,         XF86XK_AudioLowerVolume,   spawn,  SHCMD("pamixer --allow-boost -d 5; kill -36 $(pidof dwmblocks)") },
+	{ 0,         XF86XK_AudioMute,          spawn,  SHCMD("pamixer -t; kill -36 $(pidof dwmblocks)") },
 	{ 0,         XF86XK_AudioMicMute,       spawn,  SHCMD("pactl set-source-mute \"@DEFAULT_SOURCE@\" toggle")},
-	{ 0,			   XF86XK_MonBrightnessUp,		spawn,	SHCMD("/usr/bin/light -A 5")},
-	{ 0,			   XF86XK_MonBrightnessDown,	spawn,	SHCMD("/usr/bin/light -U 5") },
+	{ 0,			   XF86XK_MonBrightnessUp,		spawn,	SHCMD("/usr/bin/light -A 5; kill -37 $(pidof dwmblocks)")},
+	{ 0,			   XF86XK_MonBrightnessDown,	spawn,	SHCMD("/usr/bin/light -U 5; kill -37 $(pidof dwmblocks)") },
+	{ 0, XF86XK_MonBrightnessUp,	  spawn,	SHCMD("xbacklight -inc 15")},
+	{ 0, XF86XK_MonBrightnessDown,	spawn,	SHCMD("xbacklight -dec 15") },
 };
 
 /* button definitions */
