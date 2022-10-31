@@ -1,1 +1,6 @@
 #!/bin/sh
+
+num=$(xbacklight -get)
+bright=$(printf '%.0f\n' $num) 
+
+echo $bright

@@ -2,8 +2,10 @@
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
 	{" ", "/home/alm/.dwm/.dwmblocks/scripts/ram",	20, 0},
-	//{"", "/home/alm/.dwm/.dwmblocks/scripts/temp", 5, 0},
-	{"BAT:", "/home/alm/.dwm/.dwmblocks/scripts/bat", 30, 0},
+	{"", "/home/alm/.dwm/.dwmblocks/scripts/temp", 5, 0},
+	{"BAT:", "/home/alm/.dwm/.dwmblocks/scripts/bat", 30, 1},
+	{"VOL:", "/home/alm/.dwm/.dwmblocks/scripts/volume", 0, 2},
+	{"L:", "/home/alm/.dwm/.dwmblocks/scripts/brightness", 0, 3},
 	{"", "/home/alm/.dwm/.dwmblocks/scripts/date", 60, 0},
 };
 
