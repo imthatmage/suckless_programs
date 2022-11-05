@@ -76,7 +76,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,             		XK_q,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
+	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} }, 
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
@@ -97,15 +97,17 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("$HOME/source/scripts/bookmarkthis")},
+	{ MODKEY,                       XK_Insert, spawn,          SHCMD("xdotool type $(grep -v '^#' $HOME/source/share/snippets | dmenu -i -l 50 | cut -d ' ' -f 1)")},
 	// my own definitions
 	{ 0,         XF86XK_AudioRaiseVolume,   spawn,  SHCMD("pamixer --allow-boost -i 5; kill -36 $(pidof dwmblocks)") },
 	{ 0,         XF86XK_AudioLowerVolume,   spawn,  SHCMD("pamixer --allow-boost -d 5; kill -36 $(pidof dwmblocks)") },
 	{ 0,         XF86XK_AudioMute,          spawn,  SHCMD("pamixer -t; kill -36 $(pidof dwmblocks)") },
 	{ 0,         XF86XK_AudioMicMute,       spawn,  SHCMD("pactl set-source-mute \"@DEFAULT_SOURCE@\" toggle")},
-	{ 0,			   XF86XK_MonBrightnessUp,		spawn,	SHCMD("/usr/bin/light -A 5; kill -37 $(pidof dwmblocks)")},
-	{ 0,			   XF86XK_MonBrightnessDown,	spawn,	SHCMD("/usr/bin/light -U 5; kill -37 $(pidof dwmblocks)") },
-	{ 0, XF86XK_MonBrightnessUp,	  spawn,	SHCMD("xbacklight -inc 15")},
-	{ 0, XF86XK_MonBrightnessDown,	spawn,	SHCMD("xbacklight -dec 15") },
+//	{ 0,			   XF86XK_MonBrightnessUp,		spawn,	SHCMD("light -A 20; kill -37 $(pidof dwmblocks)")},
+//	{ 0,			   XF86XK_MonBrightnessDown,	spawn,	SHCMD("light -U 20; kill -37 $(pidof dwmblocks)") },
+	{ 0,			   XF86XK_MonBrightnessUp,		spawn,	SHCMD("xbacklight -inc 20; kill -37 $(pidof dwmblocks)")},
+	{ 0,			   XF86XK_MonBrightnessDown,	spawn,	SHCMD("xbacklight -dec 20; kill -37 $(pidof dwmblocks)") },
 };
 
 /* button definitions */
