@@ -1,6 +1,14 @@
 #!/bin/sh
 
-num=$(xbacklight -get)
+num=$(light)
 bright=$(printf '%.0f\n' $num) 
 
-echo $bright
+case 1 in
+	$((bright >= 80)) ) icon=" " ;;
+	$((bright >= 60)) ) icon=" " ;;
+	$((bright >= 40)) )  icon=" " ;;
+	$((bright >= 0)) )  icon=" " ;;
+	* ) echo  && exit ;;
+esac
+
+echo "$icon $bright%"
