@@ -1,5 +1,13 @@
 #!/bin/sh
 
-vol=$(pamixer --get-volume-human)
+vol=$(pamixer --get-volume)
 
-echo $vol
+
+case 1 in
+	$((vol >= 70)) ) icon="墳" ;;
+	$((vol >= 30)) ) icon="奔" ;;
+	$((vol >= 10)) )  icon="奄" ;;
+	* ) echo 婢 0%&& exit ;;
+esac
+
+echo "$icon $vol%"
