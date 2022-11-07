@@ -1,5 +1,41 @@
 #!/bin/sh 
 
-bat="$(acpi | awk '{print $4}' | sed s/,//)"
+if ["$(acpi)" = ""]; then
+	echo ""
+else
 
-echo "$bat"
+	bat="$(acpi | awk '{print $4}' | sed s/%,//)"
+
+	status="$(acpi | awk '{print $3}' | sed s/,//)"
+
+	charge_status="Charging"
+
+	if [ $status = $charge_status ]; then
+		case 1 in
+			$((bat >= 95)) ) icon=" " ;;
+			$((bat >= 85)) ) icon=" " ;;
+			$((bat >= 75)) ) icon=" " ;;
+			$((bat >= 60)) ) icon=" " ;;
+			$((bat >= 40)) ) icon=" " ;;
+			$((bat >= 20)) ) icon=" " ;;
+			$((bat >= 0)) ) icon=" " ;;
+			* ) echo undefined&& exit ;;
+		esac
+	else
+		case 1 in
+			$((bat >= 90)) ) icon="" ;;
+			$((bat >= 80)) ) icon="" ;;
+			$((bat >= 70)) ) icon="" ;;
+			$((bat >= 60)) ) icon="" ;;
+			$((bat >= 50)) ) icon="" ;;
+			$((bat >= 40)) ) icon="" ;;
+			$((bat >= 30)) ) icon="" ;;
+			$((bat >= 20)) ) icon="" ;;
+			$((bat >= 10)) ) icon="" ;;
+			$((bat >= 0)) ) icon="" ;;
+			* ) echo undefined&& exit ;;
+		esac
+	fi
+  echo "$icon $bat%"
+fi
+
