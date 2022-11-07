@@ -1,13 +1,18 @@
 #!/bin/sh
 
 vol=$(pamixer --get-volume)
+mute=$(pamixer --get-mute)
 
 
+if $mute; then
+	icon="婢"
+else
 case 1 in
 	$((vol >= 70)) ) icon="墳" ;;
-	$((vol >= 30)) ) icon="奔" ;;
-	$((vol >= 10)) )  icon="奄" ;;
-	* ) echo 婢 0%&& exit ;;
+	$((vol >= 20)) ) icon="奔" ;;
+	$((vol >= 0)) )  icon="奄" ;;
+	* ) echo undefined&& exit ;;
 esac
+fi
 
 echo "$icon $vol%"
