@@ -4,9 +4,13 @@ if ["$(acpi)" = ""]; then
 	echo ""
 else
 
-	bat="$(acpi | awk '{print $4}' | sed s/%,//)"
+	# bat="$(acpi | awk 'NR==1{print $4}' | sed s/%,//)"
 
-	status="$(acpi | awk '{print $3}' | sed s/,//)"
+	bat="$(cat /sys/class/power_supply/BAT0/capacity)"
+
+	# status="$(acpi | awk 'NR==1{print $3}' | sed s/,//)"
+
+	status="$(cat /sys/class/power_supply/BAT0/status)"
 
 	charge_status="Charging"
 
