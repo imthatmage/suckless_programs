@@ -131,7 +131,7 @@ static const Key keys[] = {
 	// my own definitions
 	{ 0,         XF86XK_AudioRaiseVolume,   spawn,  SHCMD("pamixer --allow-boost -i 5; kill -37 $(pidof dwmblocks)") },
 	{ 0,         XF86XK_AudioLowerVolume,   spawn,  SHCMD("pamixer --allow-boost -d 5; kill -37 $(pidof dwmblocks)") },
-	{ 0,         XF86XK_AudioMute,          spawn,  SHCMD("pamixer -t; kill -37 $(pidof dwmblocks)") },
+	{ 0,         XF86XK_AudioMute,          spawn,  SHCMD("pamixer -t; kill -36 $(pidof dwmblocks)") },
 	{ 0,         XF86XK_AudioMicMute,       spawn,  SHCMD("pactl set-source-mute \"@DEFAULT_SOURCE@\" toggle")},
 //	{ 0,			   XF86XK_MonBrightnessUp,		spawn,	SHCMD("light -A 20; kill -37 $(pidof dwmblocks)")},
 //	{ 0,			   XF86XK_MonBrightnessDown,	spawn,	SHCMD("light -U 20; kill -37 $(pidof dwmblocks)") },
