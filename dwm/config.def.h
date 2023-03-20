@@ -1,6 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
+#include <X11/XF86keysym.h>
+
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -75,6 +77,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY|ShiftMask,		XK_l,	   spawn,	   SHCMD("i3lock -c 000000") },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,             		XK_q,      killclient,     {0} },
@@ -105,6 +108,14 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ 0,         			XF86XK_AudioRaiseVolume,   	spawn,  SHCMD("pamixer --allow-boost -i 5; kill -36 $(pidof dwmblocks)") },
+	{ 0,         			XF86XK_AudioLowerVolume,   	spawn,  SHCMD("pamixer --allow-boost -d 5; kill -36 $(pidof dwmblocks)") },
+	{ 0,         			XF86XK_AudioMute,          	spawn,  SHCMD("pamixer -t; kill -36 $(pidof dwmblocks)") },
+	{ 0,         			XF86XK_AudioMicMute,       	spawn,  SHCMD("pactl set-source-mute \"@DEFAULT_SOURCE@\" toggle")},
+//	{ 0,			   	XF86XK_MonBrightnessUp,		spawn,	SHCMD("xbacklight -inc 20; kill -37 $(pidof dwmblocks)")},
+//	{ 0,			   	XF86XK_MonBrightnessDown,	spawn,	SHCMD("xbacklight -dec 20; kill -37 $(pidof dwmblocks)") },
+	{ 0,			   	XF86XK_MonBrightnessUp,		spawn,	SHCMD("lux -a 10%; kill -37 $(pidof dwmblocks)")},
+	{ 0,			   	XF86XK_MonBrightnessDown,	spawn,	SHCMD("lux -s 10%; kill -37 $(pidof dwmblocks)") },
 };
 
 /* button definitions */
