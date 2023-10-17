@@ -1,11 +1,15 @@
 //Modify this file to change what commands output to your statusbar, and recompile using the make command.
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
-	{" ", "$HOME/suckless_programs/.dwmblocks/scripts/ram",	20, 0},
-	{"", "$HOME/suckless_programs/.dwmblocks/scripts/temp", 5, 0},
-	{"", "$HOME/suckless_programs/.dwmblocks/scripts/bat", 30, 0},
+	{"", "$HOME/suckless_programs/.dwmblocks/scripts/nettraf",	5, 0},
+	// {"", "$HOME/suckless_programs/.dwmblocks/scripts/internet",	30, 0},
+	// {"", "$HOME/suckless_programs/.dwmblocks/scripts/weather",	60, 0},
 	{"", "$HOME/suckless_programs/.dwmblocks/scripts/volume", 0, 2},
 	{"", "$HOME/suckless_programs/.dwmblocks/scripts/brightness", 0, 3},
+	{"", "$HOME/suckless_programs/.dwmblocks/scripts/temp", 5, 0},
+	{" ", "$HOME/suckless_programs/.dwmblocks/scripts/ram",	15, 0},
+	{" ", "$HOME/suckless_programs/.dwmblocks/scripts/disk",	60, 0},
+	{"", "$HOME/suckless_programs/.dwmblocks/scripts/bat", 30, 0},
 	{"", "$HOME/suckless_programs/.dwmblocks/scripts/date", 60, 0},
 };
 

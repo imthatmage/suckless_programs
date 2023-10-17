@@ -1,0 +1,5 @@
+if [[ $(route | grep tun -c) -gt 0 ]]; then
+   echo "Connected to VPN"
+else
+   echo "Not connected to VPN"
+fi

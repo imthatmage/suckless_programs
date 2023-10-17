@@ -1,0 +1,23 @@
+#!/bin/bash
+
+temp="$(weather.sh -l 524901 | grep Temp | cut -d ' ' -f 2)"
+humidity="$(weather.sh -l 524901 | grep Humidity | cut -d ' ' -f 2)"
+right_now="$(weather.sh -l 524901 | awk 'NR==4{print $3" "$4}')"
+
+case "$right_now" in
+ "Clear Sky" ) w_icon="󰖨 ";;
+ "Few Clouds" ) w_icon=" ";;
+ "Broken Clouds" ) w_icon="󱋖 ";;
+ "Overcast Clouds" ) w_icon="󰖗 ";;
+ "Drizzle" ) w_icon=" ";;
+ "Rain" ) w_icon=" ";;
+ "Moderate Rain" ) w_icon=" ";;
+ "Light Rain" ) w_icon=" ";;
+ "Shower Rain" ) w_icon=" ";;
+ "Thunderstorm" ) w_icon=" ";;
+ "Snow" ) w_icon=" ";;
+ "Mist" ) w_icon=" ";;
+ * ) w_icon="󰢘 ";;
+esac
+
+echo "$w_icon: $temp,  $humidity"

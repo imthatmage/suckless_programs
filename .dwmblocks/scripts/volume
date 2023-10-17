@@ -5,12 +5,12 @@ mute=$(pamixer --get-mute)
 
 
 if $mute; then
-	icon="婢"
+	icon="󰸈"
 else
 case 1 in
-	$((vol >= 70)) ) icon="墳" ;;
-	$((vol >= 20)) ) icon="奔" ;;
-	$((vol >= 0)) )  icon="奄" ;;
+	$((vol >= 70)) ) icon=" " ;;
+	$((vol >= 20)) ) icon="󰕾 " ;;
+	$((vol >= 0)) )  icon=" " ;;
 	* ) echo undefined&& exit ;;
 esac
 fi

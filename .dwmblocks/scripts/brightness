@@ -1,14 +1,13 @@
 #!/bin/sh
 
-num=$(light)
-bright=$(printf '%.0f\n' $num) 
+bright=$(lux -G | sed 's/%//') 
 
 case 1 in
-	$((bright >= 80)) ) icon=" " ;;
-	$((bright >= 60)) ) icon=" " ;;
-	$((bright >= 40)) )  icon=" " ;;
-	$((bright >= 0)) )  icon=" " ;;
-	* ) echo  && exit ;;
+	$((bright >= 80)) ) icon="󰃚 " ;;
+	$((bright >= 60)) ) icon="󰃛 " ;;
+	$((bright >= 40)) )  icon="󰃜" ;;
+	$((bright >= 0)) )  icon="󰌽 " ;;
+	* ) echo " "&& exit ;;
 esac
 
 echo "$icon $bright%"
